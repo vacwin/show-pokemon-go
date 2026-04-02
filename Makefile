@@ -16,6 +16,7 @@ GOARCH      ?= $(shell go env GOARCH)
 build:
 	@mkdir -p $(BUILD_DIR)
 	GOOS=$(GOOS) GOARCH=$(GOARCH) go build $(LDFLAGS) -o $(BUILD_DIR)/$(BINARY_NAME) .
+	@edho ""
 	@echo "build passed: $(BUILD_DIR)/$(BINARY_NAME)"
 
 install: build
