@@ -61,7 +61,7 @@ showpkm
 
 Specific pokemon:
 ```
-showpkm -n charizard
+showpkm -n bulbasaur
 ```
 
 Shiny version:
@@ -91,7 +91,7 @@ showpkm -r 1,3,6
 
 Alternative form:
 ```
-showpkm -n deoxys -f defense
+showpkm -n charizard -f mega-x
 ```
 
 ### Running on terminal startup
