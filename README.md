@@ -4,17 +4,6 @@ A CLI tool to print pokemon sprites in your terminal. Fork of
 [pokemon-colorscripts-go](https://github.com/ollyjarvis/pokemon-colorscripts-go),
 rewritten to use only Go standard library (no external dependencies).
 
-## Changes from upstream
-
-- Replaced `install.sh` / `uninstall.sh` with a `Makefile`
-- Removed external dependencies (`buger/jsonparser`, `jessevdk/go-flags`)
-- Rewrote JSON parsing with `encoding/json`
-- Switched to standard `flag` package
-- Fixed shiny rate bug (integer division `1/128` → `1.0/128.0`)
-- Fixed random generation range bug (endpoints only → full range)
-- Data installed to `~/.local/share/` (no sudo required)
-- Binary renamed to `showpkm`
-
 ## Requirements
 
 A terminal with true color support. Most modern terminals have this.
