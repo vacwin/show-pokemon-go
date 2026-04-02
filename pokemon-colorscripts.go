@@ -46,7 +46,7 @@ func list_pokemon_names() error {
 	return nil
 }
 
-func show_pokemon_by_name(name string, show_title bool, shiny bool, is_large bool, form string) error {
+func show_pokemon_by_name(name string, shiny bool, is_large bool, form string) error {
 	dir := COLORSCRIPTS_DIR
 
 	if is_large {
@@ -102,19 +102,12 @@ func show_pokemon_by_name(name string, show_title bool, shiny bool, is_large boo
 
 	file := fmt.Sprintf("%s/%s", dir, name)
 
-	if show_title {
-		if shiny {
-			name = fmt.Sprintf("%s (shiny)", name)
-		}
-		fmt.Println(name)
-	}
-
 	print_file(file)
 
 	return nil
 }
 
-func show_random_pokemon(generations string, show_title bool, shiny bool, is_large bool) error {
+func show_random_pokemon(generations string, shiny bool, is_large bool) error {
 	var gen int
 	var err error
 
@@ -163,7 +156,7 @@ func show_random_pokemon(generations string, show_title bool, shiny bool, is_lar
 		shiny = rand.Float32() <= SHINY_RATE
 	}
 
-	show_pokemon_by_name(name, show_title, shiny, is_large, "")
+	show_pokemon_by_name(name, shiny, is_large, "")
 
 	return nil
 }
@@ -177,8 +170,6 @@ func main() {
 		Name string `short:"n" long:"name" description:"Select pokemon by name. Generally spelled like in the games.\nA few exceptions are nidoran-f, nidoran-m, mr-mime, farfetchd, flabebe type-null etc.\nPerhaps grep the output of --list if in doubt."`
 
 		Form string `short:"f" long:"form" description:"Show an alternative form of a pokemon"`
-
-		Title bool `long:"no-title" description:"Do not display pokemon name"`
 
 		Shiny bool `short:"s" long:"shiny" description:"Show the shiny version of the pokemon instead"`
 
@@ -195,9 +186,9 @@ func main() {
 	if opts.All {
 		err = list_pokemon_names()
 	} else if opts.Name != "" {
-		err = show_pokemon_by_name(opts.Name, !opts.Title, opts.Shiny, opts.Large, opts.Form)
+		err = show_pokemon_by_name(opts.Name, opts.Shiny, opts.Large, opts.Form)
 	} else {
-		err = show_random_pokemon(opts.Random, !opts.Title, opts.Shiny, opts.Large)
+		err = show_random_pokemon(opts.Random, opts.Shiny, opts.Large)
 	}
 	if err != nil {
 		fmt.Errorf("%v", err)
