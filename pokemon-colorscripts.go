@@ -156,7 +156,8 @@ func show_random_pokemon(generations string, show_title bool, shiny bool, is_lar
 		return err
 	}
 
-	name, _ := jsonparser.GetString(data, fmt.Sprintf("[%d]", pokemon_index), "name")
+	name, _ := jsonparser.GetString(data, fmt.Sprintf("[%d]", pokemon_index), "name", "en")
+	name = strings.ToLower(name)
 
 	if !shiny {
 		shiny = rand.Float32() <= SHINY_RATE
