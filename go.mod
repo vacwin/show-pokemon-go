@@ -1,3 +1,3 @@
-module github.com/ollyjarvis/pokemon-colorscripts-go
+module github.com/vacwin/show-pokemon-go
 
 go 1.23.2

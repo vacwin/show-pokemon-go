@@ -178,7 +178,7 @@ func main() {
 	)
 
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "Usage: pokemon-colorscripts-go [options]\n\n")
+		fmt.Fprintf(os.Stderr, "Usage: showpkm [options]\n\n")
 		fmt.Fprintf(os.Stderr, "Options:\n")
 		fmt.Fprintf(os.Stderr, "  -a          Print list of all pokemon\n")
 		fmt.Fprintf(os.Stderr, "  -n <name>   Select pokemon by name\n")

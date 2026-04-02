@@ -1,4 +1,4 @@
-BINARY_NAME := pokemon-colorscripts-go
+BINARY_NAME := showpkm
 
 PREFIX      := $(HOME)/.local
 BIN_DIR     := $(PREFIX)/bin
